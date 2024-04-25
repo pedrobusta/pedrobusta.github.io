@@ -1,0 +1,29 @@
+---
+const PROJECTS = [
+    {
+        title: 'Clon de Monkeytype',
+        description: 'Aqui va la descrripcion',
+        link:'#',
+        github:'#',
+        image:'',
+        tags:[ 'html', 'css', 'js'],
+    },
+]
+---
+
+{
+    PROJECTS.map(({title, description, tags, image}) => (
+        <article>
+            <h3 class="text-2xl mb-2 font-semibold">{title}</h3>
+            <p class="text-lg mb-2 text-pretty opacity-75">{description}</p>
+            <ul>
+                {tags.map(tag => (
+                    <li>{tag}</li>
+                ))}
+                <li></li>    
+            </ul>
+            <img src={image}  alt={`Captura de pantalla del proyecto ${title}`} />
+        </article>
+    ))
+}
+

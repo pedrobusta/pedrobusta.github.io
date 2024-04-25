@@ -1,0 +1,30 @@
+---
+import type { Code, Debug } from "astro:components"
+import ExperienceItem from "./ExperienceItem.astro"
+
+const EXPERIENCE = [
+    {
+        date:"2019 - Actualidad",
+        title:"Grado en Ingeniería Informática, UIB",
+        description:"Mención en Inteligencia Artificial y Computación.",
+        link:"https://estudis.uib.es/es/estudis-de-grau/grau/informatica/GIN3-P/index.html",
+    },
+    {
+        date:"2017 - 2019",
+        title:"Bachiller, IES Marratxí",
+        description:"",
+        link:"",
+    }
+]
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700 ml-3">   
+    {
+        EXPERIENCE.map(experience => (
+            <li class="mb-10 ms-4">
+                <ExperienceItem {...experience}/>
+            </li>
+        ))               
+    }
+</ol>
+
