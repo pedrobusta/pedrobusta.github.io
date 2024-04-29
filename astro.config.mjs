@@ -6,7 +6,7 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   integrations: [tailwind()],
   site: 'https://pedrobusta.github.io',
-  base: '/pedrobusta.github.io',
+  base: '',
   output: 'static',
   outDir: 'docs',
   build: {
