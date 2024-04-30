@@ -1,29 +1,66 @@
 ---
+import html from "../icons/Html.astro";
+import css from "../icons/Css.astro";
+import js from "../icons/Js.astro";
+const TAGS = {
+  HTML: {
+    name: "HTML",
+    class: "bg-[#f06529]",
+    icon: html,
+  },
+
+  CSS: {
+    name: "CSS",
+    class: "bg-[#2965f1]",
+    icon: css,
+  },
+
+  JS: {
+    name: "Javascript",
+    class: "bg-[#323330]",
+    icon: js,
+  },
+};
+
 const PROJECTS = [
-    {
-        title: 'Clon de Monkeytype',
-        description: 'Aqui va la descrripcion',
-        link:'#',
-        github:'#',
-        image:'',
-        tags:[ 'html', 'css', 'js'],
-    },
-]
+  {
+    title: "Keykong",
+    description:
+      "Juego para testear tus hablidades con el teclado, es un clon del conocido Monkeytype.",
+    link: "#",
+    github: "#",
+    image: "/277shots_so.png",
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.JS],
+  },
+];
 ---
 
 {
-    PROJECTS.map(({title, description, tags, image}) => (
-        <article>
-            <h3 class="text-2xl mb-2 font-semibold">{title}</h3>
-            <p class="text-lg mb-2 text-pretty opacity-75">{description}</p>
-            <ul>
-                {tags.map(tag => (
-                    <li>{tag}</li>
-                ))}
-                <li></li>    
-            </ul>
-            <img src={image}  alt={`Captura de pantalla del proyecto ${title}`} />
-        </article>
-    ))
+  PROJECTS.map(({ title, description, tags, image }) => (
+    <article>
+      <div class="flex flex-row gap-x-6">
+        <img
+          class="rounded-xl h-56 border-gray-700 hover:border-gray-600 border transition duration-500 ease-in-out"
+          src={image}
+          alt={`Captura de pantalla del proyecto ${title}`}
+        />
+        <div class="flex flex-col">
+          <h3 class="text-2xl mb-2 font-semibold">{title}</h3>
+          <ul class="flex gap-x-2 flex-row mb-2">
+            {tags.map((tag) => (
+              <li>
+                <span
+                  class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 rou`}
+                >
+                  <tag.icon class="size-4 size" />
+                  {tag.name}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p class="text-md mb-2 text-pretty opacity-75">{description}</p>
+        </div>
+      </div>
+    </article>
+  ))
 }
-
